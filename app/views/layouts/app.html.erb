@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>A Random FNORD <%=@title%></title>
+	<%= csrf_meta_tag %>
+	<%= stylesheet_link_tag 'main', :media => 'all' %>
+</head>
+
+<body>
+	<div class="outer_wrapper">
+		<header><%= render 'layouts/header' %></header>
+		
+		<div class="inner_wrapper">
+			<section><%= yield %></section>
+			<section><%= render 'layouts/sidebar' %></section>
+		</div>
+
+		<footer><%= render 'layouts/footer' %></footer>
+	</div>
+</body>
+
+</html>

@@ -5,15 +5,35 @@
 <head>
 	<title>A Random FNORD <%=@title%></title>
 	<%= csrf_meta_tag %>
-	<%= stylesheet_link_tag 'main', :media => 'all' %>
+	<%= stylesheet_link_tag 'test', :media => 'all' %>
 </head>
 
 <body>
-	<header><%= render 'layouts/header' %></header>
-	<section class="main"><%= yield %></section>
-	<section class="sidebar"><%= render 'layouts/sidebar' %></section><br />
-	<!--
-	<footer><%= render 'layouts/footer' %></footer> -->
+
+<div id="wrapper">
+
+	<header><h2>test this header</h2></header>
+	
+	<div id="section1">
+		<div id="blog_content">
+			<h3>title of blog post</h3>
+			<p>blah blah blah blah</p>
+			<br />
+			<br />
+		</div>
+		
+		<div id="sidebar">
+			<h3>sidebar</h3>
+			<p>sidebar stuff</p>
+		</div>
+	</div>
+
+	<footer>
+		<h2>asshat</h2>
+	<footer>
+	
+</div>
+	
 </body>
 
 </html>
