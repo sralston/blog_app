@@ -1,101 +1,110 @@
 /* HTML attribute tags */
 
 body {
-	background-color: white;
-	margin: 0;
+	background-image: url("../images/background_main.jpg");
+	background-repeat: repeat-y;
+	background-color: #939ECA;
+	margin: 0 auto;
 	padding: 0;
 }
 
 /* Header class styles */
 header {
-	background-color: white;
-	height: 120px;
-	width: 860px;
+	position: absolute;
 	top: 0;
-	left: 0;
+	left: 60px;
+	width: 900px;
+	height: 160px;
+	background-color: white;
 	margin: 0;
 	padding: 0;
-	border-bottom: 4px;
-	border-right: 0px;
-	border-left: 0;
-	border-top: 0;
-	border-style: solid;
-	border-color: #BBB;
+	border-width: 0;
+	overflow: hidden;
 }
 
 header img {
 	float: left;
-	padding: 2px;
 	border: 0;
-	margin: 15px 30px;
+	margin-left: 30px;
+	margin-top: 20px;
+	vertical-align: middle;
+	overflow: hidden;
 }
 
 .title_text {
 	float: left;
 	font-family: Times, Georgia, serif;
-	font-size: 36px;
+	font-size: 38px;
 	font-variant: small-caps;
 	font-weight: bold;
 	color: black;
-	text-shadow: 0.09em 0.09em #BBB;
-	margin: 0 0 0 30px;
+	text-shadow: 0.12em 0.12em 0.2em #BBB;
+	margin: 0 0 0 50px;
+	overflow: hidden;
+	font-variant: normal;
 }
 
 .title_text_large {
-	padding-left: 46px;
+	font-family: Times, Georgia, serif;
+	padding-left: 48px;
 	letter-spacing: 18px;
-	font-size: 40px;
+	font-size: 42px;
 	font-style: italic;
+	font-variant: small-caps;
 }
 
 /* Sidebar style */
 
 .sidebar {
-	float: left;
-	width: 196px;
 	position: absolute;
-	left: 0;
-	z-index: 1;
-	background-color: #BBB;
+	float: right;
+	left: 700px;
+	top: 160px;
+	overflow: hidden;
+	width: 198px
+	min-height: 500px;
+	background-color: #939ECA;
 	margin: 0;
-	padding: 0;
-	border-bottom: 4px;
-	border-top: 0;
-	border-left: 0;
-	border-right: 4px;
+	padding: 12px;
+	border-width: 0 0 0 2px;
 	border-style: solid;
-	border-color: black;
-	border-bottom-right-radius: 40px 32px;
-	-moz-border-bottom-right-radius: 40px 32px;
-	-webkit-border-bottom-right-radius: 40px 32px;
+	border-color: grey;
+	z-index: 1;
 }
 
 /* main content */
 
 .main {
-	float: right;
+	left: 60px;
+	top: 160px;
 	position: absolute;
-	right: 0;
-	z-index: 2;
-	width: 646px;
-	padding-left: 14px;
+	float: left;
+	width: 640px;
+	overflow: hidden;
+	min-height: 500px;
+	padding-left: 20px;
 	margin: 0;
 	background-color: white;
 	font-family: verdana, "sans serif";
 	text-size: 14px;
 	color: black;
+	z-index: 2;
 }
 
 /* footer */
 
 footer {
 	clear: both;
+	width: 900px;
+	min-height: 160px;
 	background-color: white;
 	margin-top: 12px;
 	padding: 0;
-	width: 960px;
 	font-family: "Lucida Console", monospace;
 	color: black;
 	text-size: 14px;
 	text-align: center;	
+	vertical-align: middle;
+	overflow: hidden;
+	z-index:-1;
 }
