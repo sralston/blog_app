@@ -9,7 +9,7 @@ body {
 }
 
 #wrapper {
-	width: 960px;
+	width: 800px;
 	margin: 0 auto;
 	background: #fff;
 	background: green;
@@ -28,14 +28,14 @@ header {
 #blog_content {
 	float: left;
 	background: purple;
-	width: 700px;
+	width: 600px;
 	min-height: 500px;
 }
 
 #sidebar {
 	float: right;
 	background: red;
-	width: 260px;
+	width: 200px;
 	min-height: 500px;
 }
 
