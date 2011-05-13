@@ -1,4 +1,16 @@
 BlogApp::Application.routes.draw do
+  get "posts/new"
+
+  get "posts/update"
+
+  get "posts/index"
+
+  get "posts/create"
+
+  get "posts/show"
+
+  get "posts/edit"
+
   get "pages/home"
   get "pages/about"
   get "pages/blogroll"
