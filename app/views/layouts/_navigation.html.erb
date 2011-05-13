@@ -1,12 +1,8 @@
 <% # Navigation partial for the entire blog applicatoin %>
 
 <ul>
-	<a href=<%= root_path %>><li <%= @nav_current == "home" ? " class='current'"
-	 : "" %>>Home/Blog</li></a>
-	<a href=<%= pages_blogroll_path %>><li <%= @nav_current == "blogroll" ? " class='current'"
-	 : "" %>>Blogroll</li></a>
-	<a href=<%= pages_about_path %>><li <%= @nav_current == "about" ? " class='current'"
-	 : "" %>>About</li></a>
-	<a href=<%= pages_contact_path %>><li <%= @nav_current == "contact" ? " class='current'"
-	 : "" %>>Contact</li></a>
+	<a href=<%= root_path %>><li <%= @nav_current == "home" ? " class='current'" : "" %>>Home/Blog</li></a>
+	<a href=<%= pages_blogroll_path %>><li <%= @nav_current == "blogroll" ? " class='current'" : "" %>>Blogroll</li></a>
+	<a href=<%= pages_about_path %>><li <%= @nav_current == "about" ? " class='current'" : "" %>>About</li></a>
+	<a href=<%= pages_contact_path %>><li <%= @nav_current == "contact" ? " class='current'" : "" %>>Contact</li></a>
 </ul>
