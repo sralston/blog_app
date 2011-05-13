@@ -13,7 +13,9 @@
 <div id="wrapper_outer">
 <div id="wrapper_inner">
 
-	<header><%= render 'layouts/header' %></header>
+	<div class="header"><header><%= render 'layouts/header' %></header></div>
+	
+	<div class="nav"><nav><%= render 'layouts/navigation' %></nav></div>
 	
 	<div id="main_content">
 		<div id="blog_content">
@@ -25,9 +27,7 @@
 		</div>
 	</div>
 
-	<footer>
-		<%= render 'layouts/footer' %>
-	</footer>
+	<div class="footer"><footer><%= render 'layouts/footer' %></footer></div>
 	
 </div>
 </div>
