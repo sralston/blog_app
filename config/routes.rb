@@ -1,17 +1,7 @@
 BlogApp::Application.routes.draw do
-  get "posts/new"
-
-  get "posts/update"
-
-  get "posts/index"
-
-  get "posts/create"
-
-  get "posts/show"
-
-  get "posts/edit"
-
-  get "pages/home"
+  resources :posts
+  match '/post', :to => 'posts#new'
+  
   get "pages/about"
   get "pages/blogroll"
   get "pages/contact"
@@ -65,7 +55,7 @@ BlogApp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "pages#home"
+  root :to => "posts#index"
 
   # See how all your routes lay out with "rake routes"
 

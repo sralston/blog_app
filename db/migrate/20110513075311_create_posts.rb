@@ -1,11 +1,10 @@
 class CreatePosts < ActiveRecord::Migration
   def self.up
     create_table :posts do |t|
-      t.string :title
-      t.string :subtitle
-      t.text :content
+      t.string :title, :limit => 140, :null => false
+      t.string :subtitle, :limit => 255
+      t.text :content, :null => false
       t.integer :posted_by
-      t.integer :tags
 
       t.timestamps
     end

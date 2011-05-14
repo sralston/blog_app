@@ -10,14 +10,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110513075311) do
+ActiveRecord::Schema.define(:version => 20110513224158) do
+
+  create_table "blog_rolls", :force => true do |t|
+    t.string   "url"
+    t.string   "title"
+    t.string   "icon_filename", :limit => 120
+    t.string   "description"
+    t.float    "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", :force => true do |t|
-    t.string   "title"
+    t.string   "title",      :limit => 140, :null => false
     t.string   "subtitle"
-    t.text     "content"
+    t.text     "content",                   :null => false
     t.integer  "posted_by"
-    t.integer  "tags"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "username",     :limit => 40,                      :null => false
+    t.string   "email",        :limit => 120
+    t.string   "access_level",                :default => "READ"
+    t.string   "first_name",   :limit => 40
+    t.string   "last_name",    :limit => 40
     t.datetime "created_at"
     t.datetime "updated_at"
   end

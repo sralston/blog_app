@@ -1,2 +1,21 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<% prev_date = nil %>
+<% @posts.each do |post| %>			
+
+<div class="post">
+
+	<% curr_date = post.created_at.strftime("%d") %>
+	<% if curr_date != prev_date then %>
+		<%= date_flag(post.created_at) %>
+		<% prev_date = curr_date %>
+	<% end %>
+	
+	<h2><%= post.title %></h2>
+	<%= !post.subtitle.empty? ? raw("<h3>#{ post.subtitle }</h3>") : "" %>
+	<div class="content"><%= raw(post.content) %></div>
+	<p class="footer_text">
+		Posted By: <%= post.user.first_name + " " + post.user.last_name %>
+		(<%= post.created_at.strftime("%B %d, %Y @ %H:%M %Z") %>)
+		<span style="float: right;">&lt;/fnord&gt;</span>
+	</p>
+</div>
+<% end %>
