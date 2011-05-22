@@ -2,6 +2,10 @@ BlogApp::Application.routes.draw do
   resources :posts
   
   match '/post', :to => 'posts#new'
+  match '/unpublished', :to => 'posts#unpublished'
+  match '/preview/:id', :to => 'posts#preview'
+  match '/publish/:id', :to => 'posts#publish'
+  match '/posts/:id/delete', :to => 'posts#delete'
   
   get "pages/about"
   get "pages/blogroll"

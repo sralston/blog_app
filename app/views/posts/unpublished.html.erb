@@ -1,5 +1,9 @@
 <% prev_date = nil %>
-<% @posts.each do |post| %>			
+
+<% if @posts.empty? %>
+	<p class="new_post">No unpublished posts</p>
+<% else %>
+	<% @posts.each do |post| %>			
 
 <div class="post">
 
@@ -18,4 +22,10 @@
 		<span style="float: right;">&lt;/fnord&gt;</span>
 	</p>
 </div>
+
+<span style="float:left; margin-left: 30px;"><%= button_to 'Edit', edit_post_path(post), :method => :get %></span>
+<span style="float:left;"><%= button_to "Delete", { :action => "delete", :id => post.id }, :confirm => "Are you sure?", :method => :delete %></span>
+<span style="float:left;"><%= button_to 'Publish', :controller => :posts, :action => :publish, :id => post.id %></span>
+
+	<% end %>
 <% end %>

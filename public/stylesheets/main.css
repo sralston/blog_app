@@ -166,6 +166,15 @@ body {
 	color: #182761;
 }
 
+.post h2 a {
+	color: #182761;
+	text-decoration: none;
+}
+
+.post h2 a:hover {
+	text-decoration: underline;
+}
+
 .post h3 {
 	padding-top: 8px;
 	color: #8E571F;

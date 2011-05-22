@@ -1,2 +1,21 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<div class="new_post">
+
+<h2>Edit Post</h2>
+
+<%= form_for(@post) do |p| %>
+
+	<%= render 'shared/error_messages', :object => p.object %>
+
+	<%= p.label :title %><br />
+	<%= p.text_field :title, :size=> 60 %><br />
+	
+	<%= p.label :subtitle %><br />
+	<%= p.text_field :subtitle, :size=>60 %><br />
+	
+	<%= p.label :content %><br />
+	<%= p.text_area :content, :cols => 80, :rows => 20 %></br>
+	
+	<%= p.submit "Save!" %>
+<% end %>
+
+</div>
