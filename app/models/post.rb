@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
 	
 	validates :title, :presence => true, :length => { :maximum => 120 }
 	validates :subtitle, :length => { :maximum => 255 }
+	validates :content, :presence => true
 	
 	default_scope :order => 'posts.created_at DESC'
 end

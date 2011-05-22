@@ -1,5 +1,6 @@
 BlogApp::Application.routes.draw do
   resources :posts
+  
   match '/post', :to => 'posts#new'
   
   get "pages/about"

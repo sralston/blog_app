@@ -15,12 +15,24 @@ class PostsController < ApplicationController
   end
 
   def create
+  	@post = Post.new(params[:post])
+  	@post.posted_by = 1.to_i
+  	if @post.save
+  		flash[:success] = "Post saved!"
+  		redirect_to :root
+  	else
+  		@title = "| Create a new blog post"
+  		render 'new'
+  	end
   end
 
   def show
   end
 
   def edit
+  end
+  
+  def preview
   end
 
 end

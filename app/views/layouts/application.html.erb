@@ -18,7 +18,17 @@
 	<div class="nav"><nav><%= render 'layouts/navigation' %></nav></div>
 	
 	<div id="main_content">
+		
 		<div id="left_content">
+			
+			<% if !flash.empty? %>
+			<div class="flash_box">
+				<% flash.each do |key, value| %>
+					<div class="flash <%= key %>"><%= value %></div>
+				<% end %>
+			</div>	
+			<% end %>
+		
 			<%= yield %>
 		</div>
 		
@@ -32,7 +42,7 @@
 	
 </div>
 </div>
-	
+<%= debug(params) if Rails.env.development? %>	
 </body>
 
 </html>
