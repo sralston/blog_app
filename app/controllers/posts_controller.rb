@@ -1,8 +1,11 @@
 class PostsController < ApplicationController
 
+before_filter :authenticate, :except => [:index, :show ]
+
   def index
     @title = "| Home Page & Blog"
   	@nav_current = "home"
+  	store_location
   	@posts = Post.where(:published => true)
   end
   
@@ -27,8 +30,7 @@ class PostsController < ApplicationController
   end
 
   def create
-  	@post = Post.new(params[:post])
-  	@post.posted_by = 1.to_i
+  	@post = current_user.posts.build(params[:post])
   	if @post.save
   		flash[:success] = "Post saved -- Not yet published"
   		redirect_to "/preview/#{ @post.id }"
@@ -39,6 +41,7 @@ class PostsController < ApplicationController
   end
 
   def show
+  	store_location
   	@post = Post.find(params[:id])
   end
 
@@ -71,7 +74,7 @@ class PostsController < ApplicationController
   def delete
 	post = Post.find(params[:id])
 	post.delete
-	redirect_to '/unpublished'
+	redirect_to unpublished_path
   end
 
 end

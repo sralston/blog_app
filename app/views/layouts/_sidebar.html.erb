@@ -1,23 +1,19 @@
-<% # Sidebar partial for the entire blog applicatoin %>
+<% if signed_in? %>
 
-<div class="sidebar_item">
-sidebar!<br />
-sidebar!<br />
-sidebar!<br />
-sidebar!<br />
-sidebar!<br />
-sidebar!<br />
-sidebar!<br />
-sidebar!<br />
-sidebar!<br />
-sidebar!<br />
-sidebar!<br />
-sidebar!<br />
-</div>
+	<%= render 'shared/sidebar/logged_in' %>
+	
+<% else %>
 
-<div class="sidebar_item">
-<h2>test</h2>
-<h3>sub-test</h3>
-blah blah<br />
-hehehe<br />
-</div>
+	<%= render 'shared/sidebar/log_in_sign_up' %>
+	
+<% end %>
+
+<% if signed_in? && (current_user.access_level == "ADMIN" || current_user.access_level == "POST") %>
+
+	<%= render 'shared/sidebar/sidebar_tools' %>
+	
+<% else %>
+
+	<%= render 'shared/sidebar/sidebar_for_users' %>
+	
+<% end %>
