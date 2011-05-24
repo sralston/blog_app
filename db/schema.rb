@@ -10,14 +10,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110522205545) do
+ActiveRecord::Schema.define(:version => 20110524202428) do
 
   create_table "blog_rolls", :force => true do |t|
     t.string   "url"
     t.string   "title"
-    t.string   "icon_filename", :limit => 120
+    t.string   "icon_filename",          :limit => 120
     t.string   "description"
     t.float    "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "blogroll_categories_id"
+  end
+
+  create_table "blogroll_categories", :force => true do |t|
+    t.string   "name",       :limit => 60, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
