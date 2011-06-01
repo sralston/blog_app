@@ -4,12 +4,10 @@ BlogApp::Application.routes.draw do
   resources :posts
   resources :sessions, :only => [:create, :destroy]
   
-  match '/post', :to => 'posts#new'
-  match '/unpublished', :to => 'posts#unpublished'
-  match '/preview/:id', :to => 'posts#preview', :as => "preview"
-  match '/publish/:id', :to => 'posts#publish'
-  match '/posts/:id/delete', :to => 'posts#delete'
-  match '/sessions/destroy', :to => 'sessions#destroy'
+  match '/unpublished', 	:to => 'posts#unpublished'
+  match '/preview/:id', 	:to => 'posts#preview', :as => 'preview'
+  match '/publish/:id', 	:to => 'posts#publish', :as => 'publish'
+  match '/tag_index/:id',	:to => 'posts#tag_index', :as => 'show_tags'
   
   get "pages/about"
   get "pages/contact"

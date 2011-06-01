@@ -5,7 +5,8 @@
 		<h3><%= current_user.username %></h3>
 		signed in
 		<hr />
-		<%= button_to "Logout", { :action => :destroy, :controller => :sessions, :id =>current_user.id }, :method => :delete %>
+		<%= button_to "Logout", session_path(current_user.id), :method => :delete %>
+		
 	</div>
 	
 </div>

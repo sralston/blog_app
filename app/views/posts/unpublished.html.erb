@@ -1,32 +1,19 @@
-<% prev_date = nil %>
-
 <% if @posts.empty? %>
 	<p class="new_post">No unpublished posts</p>
 <% else %>
-	<% @posts.each do |post| %>			
-
-<div class="post">
-
-	<% curr_date = post.created_at.strftime("%d") %>
-	<% if curr_date != prev_date then %>
-		<%= date_flag(post.created_at) %>
-		<% prev_date = curr_date %>
-	<% end %>
 	
-	<h2><%= link_to post.title, post_path(post) %></h2>
-	<%= !post.subtitle.empty? ? raw("<h3>#{ post.subtitle }</h3>") : "" %>
-	<div class="content"><%= raw(post.content) %></div>
-	<p class="footer_text">
-		Posted By: <%= post.user.first_name + " " + post.user.last_name %>
-		(<%= post.created_at.strftime("%B %d, %Y @ %H:%M %Z") %>)
-		<span style="float: right;">&lt;/fnord&gt;</span>
-	</p>
-</div>
+	<% @posts.each do |post| %>
+
+	<div class="post">
+		<%= date_flag(post.created_at) %>
+		<%= render post %>			
+	</div>
 
 <span style="float:left; margin-left: 30px;"><%= button_to 'Edit', edit_post_path(post), :method => :get %></span>
-<span style="float:left;"><%= button_to "Delete", { :action => "delete", :id => post.id }, :confirm => "Are you sure?", :method => :delete %></span>
-<span style="float:left;"><%= button_to 'Publish', :controller => :posts, :action => :publish, :id => post.id %></span>
-<span style="float:left;"><%= button_to 'Preview', :controller => :posts, :action => :preview, :id => post.id %></span>
-
+<span style="float:left;"><%= button_to "Delete", post_path(post), :confirm => "Are you sure?", :method => :delete %></span>
+<span style="float:left;"><%= button_to 'Publish', publish_path(post) %></span>
+<span style="float:left;"><%= button_to 'Preview', preview_path(post) %></span>
+	
 	<% end %>
+
 <% end %>

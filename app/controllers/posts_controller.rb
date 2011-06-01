@@ -9,6 +9,15 @@ before_filter :authenticate, :except => [:index, :show ]
   	@posts = Post.where(:published => true)
   end
   
+  def tag_index
+  	@tag = Tag.find(params[:id])
+  	@title = "| Posts tagged with " + @tag.name
+  	@nav_current = "home"
+  	store_location
+  	@posts = @tag.posts
+  	render 'index'
+  end
+  
   def new
   	@post = Post.new
   	@title = "| Create a new blog post"
@@ -71,7 +80,7 @@ before_filter :authenticate, :except => [:index, :show ]
   	@posts = Post.where(:published => false)
   end
   
-  def delete
+  def destroy
 	post = Post.find(params[:id])
 	post.delete
 	redirect_to unpublished_path

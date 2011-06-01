@@ -164,10 +164,6 @@ body {
 	font-size: 18px;
 }
 
-.post h2 {
-	color: #182761;
-}
-
 .post h2 a {
 	color: #182761;
 	text-decoration: none;
@@ -185,13 +181,30 @@ body {
 .post .content {
 	line-height: 26px;
 	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.post .tag {
+	color: #8E571F;
+	font-size: 12px;
+	padding: 4px;
+	font-weight: bold;
+}
+
+.post .tag a {
+	text-decoration: none;
+	color: #8E571F;
+}
+
+.post .tag a:hover {
+	color: #182761;
+	text-decoration: underline;
 }
 
 .post .footer_text {
-	padding-top: 12px;
 	font-size: 14px;
+	padding-top: 12px;
 }
-
 .date_flag {
 	position: absolute;
 	display: block;
@@ -310,7 +323,6 @@ body {
 #error_explanation p {
 	color: #333;
 	font-size: 14px;
-	margin: 
 }
 
 #error_explanation ul li {

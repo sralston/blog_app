@@ -1,0 +1,23 @@
+	<h2><%= link_to post.title, post_path(post) %></h2>
+	<%= !post.subtitle.empty? ? raw("<h3>#{ post.subtitle }</h3>") : "" %>
+	<div class="content"><%= raw(post.content) %></div>
+
+	<span class="tag">
+	<% if post.tags.empty? %>
+		<b>No tags</b>
+	<% else %>
+		<b><%= post.tags.size > 1 ? "Tags" : "Tag" %>:&nbsp</b>
+		<% last_item = post.tags.size %>
+		<% current_item = 1 %>
+		<% post.tags.each do |t| %>
+			<%= link_to t.name, show_tags_path(t.id) %><%= ", " unless last_item == current_item %>
+			<% current_item += 1 %>
+		<% end %>
+	<% end %>
+	</b></span>
+	
+	<p class="footer_text">		
+		Posted By: <%= post.user.first_name + " " + post.user.last_name %>
+		(<%= post.created_at.strftime("%B %d, %Y @ %H:%M %Z") %>)
+		<span style="float: right;">&lt;/fnord&gt;</span>
+	</p>

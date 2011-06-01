@@ -1,6 +1,7 @@
 class BlogRollsController < ApplicationController
 
 before_filter :authenticate, :except => :index
+before_filter :store_location, :only => :index
 
   def index
     @title = "| Blogroll"

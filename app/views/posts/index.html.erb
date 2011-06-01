@@ -9,13 +9,6 @@
 		<% prev_date = curr_date %>
 	<% end %>
 	
-	<h2><%= link_to post.title, post_path(post) %></h2>
-	<%= !post.subtitle.empty? ? raw("<h3>#{ post.subtitle }</h3>") : "" %>
-	<div class="content"><%= raw(post.content) %></div>
-	<p class="footer_text">
-		Posted By: <%= post.user.first_name + " " + post.user.last_name %>
-		(<%= post.created_at.strftime("%B %d, %Y @ %H:%M %Z") %>)
-		<span style="float: right;">&lt;/fnord&gt;</span>
-	</p>
+	<%= render post %>
 </div>
 <% end %>

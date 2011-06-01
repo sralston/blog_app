@@ -44,6 +44,10 @@ module SessionsHelper
 		session[:return_to] = nil
 	end
 	
+	def admin?
+		signed_in? && current_user.access_level == "ADMIN"
+	end
+	
 	private
 	
 		def user_from_remember_token

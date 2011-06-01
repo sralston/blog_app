@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110524214553) do
+ActiveRecord::Schema.define(:version => 20110601075728) do
 
   create_table "blog_rolls", :force => true do |t|
     t.string   "url"
@@ -38,6 +38,21 @@ ActiveRecord::Schema.define(:version => 20110524214553) do
     t.datetime "updated_at"
     t.boolean  "published",                 :default => false
   end
+
+  create_table "posts_tags", :id => false, :force => true do |t|
+    t.integer "post_id"
+    t.integer "tag_id"
+  end
+
+  add_index "posts_tags", ["post_id", "tag_id"], :name => "index_posts_tags_on_post_id_and_tag_id"
+
+  create_table "tags", :force => true do |t|
+    t.string   "name",       :limit => 30, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tags", ["name"], :name => "index_tags_on_name"
 
   create_table "users", :force => true do |t|
     t.string   "username",           :limit => 40,                      :null => false

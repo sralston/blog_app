@@ -1,19 +1,10 @@
 <div class="post">
 
 	<%= date_flag(@post.created_at) %>
+
+	<%= render @post %>
 	
-	<h2><%= @post.title %></h2>
-	<%= !@post.subtitle.empty? ? raw("<h3>#{ @post.subtitle }</h3>") : "" %>
-	<div class="content"><%= raw(@post.content) %></div>
-	<p class="footer_text">
-		Posted By: <%= @post.user.first_name + " " + @post.user.last_name %>
-		(<%= @post.created_at.strftime("%B %d, %Y @ %H:%M %Z") %>)
-		<span style="float: right;">&lt;/fnord&gt;</span>
-	</p>
 </div>
 
-<%= button_to('Edit', edit_post_path(@post), :method => :get) if signed_in? && current_user.access_level == "ADMIN" %>
+<%= button_to('Edit', edit_post_path(@post), :method => :get) if admin? %>
 
-<div class="post">
-	<h2>Comments are here...</h2>
-</div>
