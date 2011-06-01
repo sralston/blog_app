@@ -2,14 +2,14 @@
 	<h3 style="margin: 6px 0; text-align: center;">Sign-in!</h3>
 
 	<%= form_for(:session, :url => sessions_path) do |f| %>
-	
-		<%= f.label :username %>
-		<%= f.text_field :username, :size => 16 %><br />
-		
-		<%= f.label :password %>
-		<%= f.password_field :password, :size => 16 %>
-		
-		<div style="margin: 3px auto;"><%= f.submit "Go" %></div>
+
+	<table class="sign_in_table">
+		<tr><td><%= f.label :username %></td></tr>
+		<tr><td><%= f.text_field :username, :size => 16 %></td></tr>
+		<tr><td><%= f.label :password %></td></tr>
+		<tr><td><%= f.password_field :password, :size => 16 %></td></tr>
+		<tr><td><%= f.submit "Go" %></td></tr>
+	</table>
 	
 	<% end %>
 

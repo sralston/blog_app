@@ -1,0 +1,23 @@
+<h2>Create a new Blogroll entry</h2>
+
+<%= form_for @blogroll do |f| %>
+
+	<%= render 'shared/error_messages', :object => f.object %>
+	
+	<%= f.label "Blog Category" %><br />
+	<%= f.collection_select(:blogroll_category_id, @blogroll_categories, :id, :name) %><br />
+	
+	<%= f.label "Blog Title" %><br />
+	<%= f.text_field :title, :size=>60 %><br />
+	
+	<%= f.label :url %><br />
+	<%= f.text_field :url, :size=>60 %><br />
+	
+	<%= f.label :description %><br />
+	<%= f.text_area :description, :cols => 60, :rows => 6 %><br />
+	
+	<%= f.submit "Save!" %>
+	
+<% end %>
+	
+	

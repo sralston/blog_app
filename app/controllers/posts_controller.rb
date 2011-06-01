@@ -21,7 +21,7 @@ before_filter :authenticate, :except => [:index, :show ]
 		if @post.published
 			redirect_to post_path(@post)
 		else
-			redirect_to "/preview/#{ @post.id }"
+			redirect_to preview_path(@post)
 		end
 	else
 		@title = "| Edit post"
@@ -33,7 +33,7 @@ before_filter :authenticate, :except => [:index, :show ]
   	@post = current_user.posts.build(params[:post])
   	if @post.save
   		flash[:success] = "Post saved -- Not yet published"
-  		redirect_to "/preview/#{ @post.id }"
+  		redirect_to preview_path(@post)
   	else
   		@title = "| Create a new blog post"
   		render 'new'
@@ -62,7 +62,7 @@ before_filter :authenticate, :except => [:index, :show ]
   		flash[:success] = "Post published!"
   		redirect_to :root
   	else
-  		redirect_to "/preview/#{ @post.id }"
+  		redirect_to preview_path(@post)
 	end
   end
   

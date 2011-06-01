@@ -12,6 +12,8 @@
 	</p>
 </div>
 
+<%= button_to('Edit', edit_post_path(@post), :method => :get) if signed_in? && current_user.access_level == "ADMIN" %>
+
 <div class="post">
 	<h2>Comments are here...</h2>
 </div>

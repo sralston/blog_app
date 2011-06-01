@@ -6,11 +6,6 @@ before_filter :store_location
   	@nav_current = "about"
   end
 
-  def blogroll
-  	@title = "| Blogroll"
-  	@nav_current = "blogroll"
-  end
-
   def contact
   	@title = "| Contact"
   	@nav_current = "contact"

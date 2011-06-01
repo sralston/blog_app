@@ -132,6 +132,8 @@ body {
 	border-right-width: 1px;
 	border-right-color: black;
 	border-right-style: solid;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
 }
 
 #sidebar {
@@ -234,6 +236,12 @@ body {
 	line-height: 21px;
 }
 
+.blogroll {
+	margin: 24px 30px 18px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+}
+
 .footer {
 	clear: both;
 	background-color: #464E70;
@@ -310,4 +318,9 @@ body {
 	list-style: square;
 	padding: 6px;
 	margin-left: 18px;
+}
+
+.sign_in_table {
+	padding: 2px;
+	border: none;
 }

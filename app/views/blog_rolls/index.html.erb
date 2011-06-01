@@ -1,0 +1,26 @@
+<div class="blogroll">
+<h2>Blogroll</h2>
+<br />
+
+<% edit_flag = (signed_in? && current_user.access_level == "ADMIN") %>
+
+	<% @blogroll_categories.each do |bc| %>
+		<h3><%= bc.name %></h3>
+		<%= raw "No blogs currently in this category<br /><br />" if bc.blog_rolls.empty? %>
+		
+		<% bc.blog_rolls.each do |b| %>
+			<div class="blog_roll">
+				<%= b.title %><br />
+				<%= link_to b.url, b.url %><br />
+			</div>		
+			<% if edit_flag %>
+				<span style="float:left;"><%= button_to('Edit', edit_blog_roll_path(b.id), :method => :get) %></span>
+				<span style="float:left;"><%= button_to('Delete', blog_roll_path(b.id), { :confirm => "Are you sure?", :method => :delete }) %></span><br />
+			<% end %>
+			<br />
+
+		<% end %>
+
+	<% end %>
+
+</div>

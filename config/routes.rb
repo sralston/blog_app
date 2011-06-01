@@ -1,18 +1,17 @@
 BlogApp::Application.routes.draw do
-
+  resources :blog_rolls
   resources :users
   resources :posts
   resources :sessions, :only => [:create, :destroy]
   
   match '/post', :to => 'posts#new'
   match '/unpublished', :to => 'posts#unpublished'
-  match '/preview/:id', :to => 'posts#preview'
+  match '/preview/:id', :to => 'posts#preview', :as => "preview"
   match '/publish/:id', :to => 'posts#publish'
   match '/posts/:id/delete', :to => 'posts#delete'
   match '/sessions/destroy', :to => 'sessions#destroy'
   
   get "pages/about"
-  get "pages/blogroll"
   get "pages/contact"
 
   # The priority is based upon order of creation:
