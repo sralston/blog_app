@@ -48,6 +48,10 @@ module SessionsHelper
 		signed_in? && current_user.access_level == "ADMIN"
 	end
 	
+	def authenticate_post_permissions
+		deny_access unless (signed_in? && (current_user.access_level == "ADMIN" || current_user.access_level == "POST"))
+	end
+	
 	private
 	
 		def user_from_remember_token

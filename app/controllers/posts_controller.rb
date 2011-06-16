@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-before_filter :authenticate, :except => [:index, :show ]
+before_filter :authenticate_post_permissions, :except => [:index, :show, :tag_index ]
 
   def index
     @title = "| Home Page & Blog"
@@ -20,6 +20,7 @@ before_filter :authenticate, :except => [:index, :show ]
   
   def new
   	@post = Post.new
+  	@tags = Tag.all
   	@title = "| Create a new blog post"
   end
 
