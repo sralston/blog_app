@@ -1,7 +1,7 @@
 BlogApp::Application.routes.draw do
+  resources :posts
   resources :blog_rolls
   resources :users
-  resources :posts
   resources :sessions, :only => [:create, :destroy]
   
   match '/unpublished', 	:to => 'posts#unpublished'

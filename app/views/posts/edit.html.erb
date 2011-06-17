@@ -15,6 +15,14 @@
 	<%= p.label :content %><br />
 	<%= p.text_area :content, :cols => 80, :rows => 20 %></br>
 	
+	Tags:<br />
+	<% @tags.each do |t| %>
+	
+		<%= check_box_tag "post[tag_ids][]", t.id, @post.tags.include?(t) %>
+		<%= t.name %>&nbsp&nbsp
+	
+	<% end %>	
+	
 	<%= p.submit "Save!" %>
 <% end %>
 

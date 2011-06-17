@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 		user = User.authenticate(params[:session][:username], params[:session][:password])
 		
 		if user.nil?
-			flash[:error] = "Invalid email/password combination"
+			flash[:error] = "Invalid username/password combination"
 			redirect_back_or :root
 		else
 			sign_in user

@@ -1,0 +1,44 @@
+ <html>                                                                  
+ <head>
+ 	<style>
+ 		.red {
+ 			background-color: red;
+ 		}
+ 		
+ 		.blue {
+ 			color: blue;
+ 		}
+ 		
+ 		.green {
+ 			color: green;
+ 		}
+     </style>                                                    
+ <script type="text/javascript" src="javascripts/jquery.js"></script>          
+ <script type="text/javascript">                                         
+   // we will add our javascript code here                                     
+  $(document).ready(function() {
+    $("p").fadeOut();
+ 	$("#orderedlist").find("li").each(function(i) {
+ 		$(this).append(" BAM! "+i);
+ 	});
+  });
+  
+ </script>                                                               
+ </head>                                                                 
+ <body>                                                                  
+   <!-- we will add our HTML content here -->
+   <a href='#'>link</a>                                        
+   
+   <p>testing the fadeout thingy...</p>
+   
+   <ol id="orderedlist">
+   	<li>item 1</li>
+   	<li>item 2</li>
+   </ol>
+   
+   <ol>
+   	<li>me</li>
+   	<li>mo</li>
+   </ol>
+ </body>                                                                 
+ </html>

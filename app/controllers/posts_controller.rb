@@ -14,7 +14,7 @@ before_filter :authenticate_post_permissions, :except => [:index, :show, :tag_in
   	@title = "| Posts tagged with " + @tag.name
   	@nav_current = "home"
   	store_location
-  	@posts = @tag.posts
+  	@posts = @tag.posts.where(:published => true)
   	render 'index'
   end
   
@@ -26,6 +26,12 @@ before_filter :authenticate_post_permissions, :except => [:index, :show, :tag_in
 
   def update
   	@post = Post.find(params[:id])
+  	@new_tags = Tag.find(params[:post][:tag_ids])
+  	if @post.tags != @new_tags
+  		@post.tags.clear
+  		@post.tags << @new_tags
+  	end
+  	
   	if @post.update_attributes(params[:post])
 		flash[:success] = "Post updated"
 		if @post.published
@@ -41,6 +47,8 @@ before_filter :authenticate_post_permissions, :except => [:index, :show, :tag_in
 
   def create
   	@post = current_user.posts.build(params[:post])
+  	@tags = Tag.find(params[:post][:tag_ids])
+  	@post.tags << @tags
   	if @post.save
   		flash[:success] = "Post saved -- Not yet published"
   		redirect_to preview_path(@post)
@@ -57,6 +65,7 @@ before_filter :authenticate_post_permissions, :except => [:index, :show, :tag_in
 
   def edit
   	@post = Post.find(params[:id])
+  	@tags = Tag.all
   	@title = "| Edit post"
   end
   
@@ -83,6 +92,7 @@ before_filter :authenticate_post_permissions, :except => [:index, :show, :tag_in
   
   def destroy
 	post = Post.find(params[:id])
+	post.tags.clear
 	post.delete
 	redirect_to unpublished_path
   end
