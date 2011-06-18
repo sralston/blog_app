@@ -26,10 +26,15 @@ before_filter :authenticate_post_permissions, :except => [:index, :show, :tag_in
 
   def update
   	@post = Post.find(params[:id])
-  	@new_tags = Tag.find(params[:post][:tag_ids])
-  	if @post.tags != @new_tags
+  	
+  	if params[:post][:tag_ids].nil?
   		@post.tags.clear
-  		@post.tags << @new_tags
+  	else
+	  	@new_tags = Tag.find(params[:post][:tag_ids])
+	  	if @post.tags != @new_tags
+	  		@post.tags.clear
+	  		@post.tags << @new_tags
+	  	end
   	end
   	
   	if @post.update_attributes(params[:post])
@@ -47,13 +52,18 @@ before_filter :authenticate_post_permissions, :except => [:index, :show, :tag_in
 
   def create
   	@post = current_user.posts.build(params[:post])
-  	@tags = Tag.find(params[:post][:tag_ids])
-  	@post.tags << @tags
+  	
+  	if !params[:post][:tag_ids].nil?
+  		@tags = Tag.find(params[:post][:tag_ids])
+  		@post.tags << @tags
+  	end
+  	
   	if @post.save
   		flash[:success] = "Post saved -- Not yet published"
   		redirect_to preview_path(@post)
   	else
   		@title = "| Create a new blog post"
+  		@tags = Tag.all
   		render 'new'
   	end
   end

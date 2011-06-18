@@ -1,0 +1,28 @@
+<div class="update_tag">
+	<%= form_for update_tag, :remote => true do |t| %>
+		<table>
+			<tr>
+				<span style="font-weight: bold;">Change the tag name</span>
+			</tr>
+			
+			<tr>
+				<td>Tag:</td>
+				<td><%= update_tag.name %></td>
+			</tr>
+			
+			<tr>
+				<td>To:</td>
+				<td><%= t.text_field :name, :size=>15 %></td>
+			</tr>
+			
+			<tr>
+				<td><%= t.submit "Update" %></td>
+	<% end %>
+				<td style="text-align:right;">
+					<form action="">
+						<input type="button" value="Close" onClick='$(".update_tag").remove();'>
+					</form>		
+				</td>
+			</tr>
+		</table>
+</div>

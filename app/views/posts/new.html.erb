@@ -5,6 +5,7 @@
 <%= form_for(@post) do |p| %>
 
 	<%= render 'shared/error_messages', :object => p.object %>
+	<div class='jquery_error'></div>
 
 	<%= p.label :title %><br />
 	<%= p.text_field :title, :size=> 60 %><br />
@@ -16,16 +17,13 @@
 	<%= p.text_area :content, :cols => 80, :rows => 10 %></br>
 
 	<div class="display_tags">Tags:<br />
-	<% @tags.each do |t| %>
-	
-		<%= check_box_tag "post[tag_ids][]", t.id %>
-		<%= t.name %>&nbsp&nbsp
-	
-	<% end %>
+		<%= render :partial => 'shared/post_tags', :collection => @tags %>
 	</div>
 	<%= p.submit "Save!" %>
 
 <% end %>
+
+	<div class="update_position"></div>
 
 	<br />
 	<%= form_for Tag.new, :remote=>true do |t| %>

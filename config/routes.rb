@@ -3,7 +3,7 @@ BlogApp::Application.routes.draw do
   resources :blog_rolls
   resources :users
   resources :sessions, :only => [:create, :destroy]
-  resources :tags
+  resources :tags, :only => [:create, :edit, :update]
   
   match '/unpublished', 	:to => 'posts#unpublished'
   match '/preview/:id', 	:to => 'posts#preview', :as => 'preview'

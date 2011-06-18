@@ -1,0 +1,3 @@
+<%= check_box_tag "post[tag_ids][]", post_tags.id, false %>
+<%= link_to post_tags.name, { :controller => "tags", :action => "edit", :id => post_tags.id }, :remote => true, :class=>"tag_#{post_tags.id}" %>
+&nbsp&nbsp

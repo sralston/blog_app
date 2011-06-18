@@ -17,9 +17,9 @@
  <script type="text/javascript">                                         
    // we will add our javascript code here                                     
   $(document).ready(function() {
-    $("p").fadeOut();
- 	$("#orderedlist").find("li").each(function(i) {
- 		$(this).append(" BAM! "+i);
+
+ 	$("a").click(function() {
+ 		$(".display_tags").append(" BAM! ");
  	});
   });
   
@@ -29,16 +29,9 @@
    <!-- we will add our HTML content here -->
    <a href='#'>link</a>                                        
    
-   <p>testing the fadeout thingy...</p>
-   
-   <ol id="orderedlist">
-   	<li>item 1</li>
-   	<li>item 2</li>
-   </ol>
-   
-   <ol>
-   	<li>me</li>
-   	<li>mo</li>
-   </ol>
+   <div class="display_tags">
+   	tags
+   </div>
+   	
  </body>                                                                 
  </html>
