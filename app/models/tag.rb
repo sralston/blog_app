@@ -10,6 +10,7 @@ class Tag < ActiveRecord::Base
 	def self.tags_count
 		find(:all, :select => 'tags.id, tags.name, COUNT(posts_tags.tag_id) as tag_count',
 			 :joins => 'INNER JOIN posts_tags ON posts_tags.tag_id = tags.id',
-			 :group => 'tags.name HAVING COUNT(posts_tags.tag_id > 0)')
+			 :group => 'tags.name')
 	end
+
 end
