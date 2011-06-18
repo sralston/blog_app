@@ -5,7 +5,6 @@ class AddEmailUniquenessIndex < ActiveRecord::Migration
   end
 
   def self.down
-  	change_column :users, :access_level, :limit => 255
   	remove_index :users, :email
   end
 end
